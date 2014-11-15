@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/alex/Dropbox/projects/ios/ec007-swift-kickstart'
+let g:netrw_dirhist_2='/Volumes/LaCie/alex/scripts'
+let g:netrw_dirhist_3='/Volumes/LaCie/alex/scripts/laptop'
+let g:netrw_dirhist_4='/'
+let g:netrw_dirhist_5='/Users/alex/projects/ruby/rubinius'
+let g:netrw_dirhist_6='/Users/alex/projects/ruby/rubinius/vm'
