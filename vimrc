@@ -3,6 +3,85 @@
 set nocompatible        " be iIMproved - required
 filetype off            " required
 
+" ====================================================================================
+" setup vundle and plugins
+"
+" Based on http://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
+let need_to_install_plugins=0
+if empty(system("grep lazy_load ~/.vim/bundle/vundle/autoload/vundle.vim"))
+    echo "Installing Vundle..."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !rm -rf ~/.vim/bundle/vundle
+    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    let need_to_install_plugins=1
+endif
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'	  " let Vundle manage Vundle, required
+
+" Colorschemes
+Plugin 'molokai'
+
+" General editing
+Plugin 'tpope/vim-repeat'         " remap '.' repeat in a way that plugins can use		
+"Plugin 'tpope/vim-endwise'        " end control structures 
+"Plugin 'tpope/vim-surround'       " manage surroundings ie () in pairs
+"Plugin 'scrooloose/nerdcommenter' " for commenting
+Plugin 'sjl/gundo.vim'            " visualize your Vim undo tree.
+"Plugin 'godlygeek/tabular'        " align text http://vimcasts.org/episodes/aligning-text-with-tabular-vim/  
+Plugin 'scrooloose/syntastic'     " syntax checking 
+Plugin 'ervandew/supertab'        " use <Tab> for all your insert completion needs
+"Plugin 'garbas/vim-snipmate'      " text snippets similar to textmate
+"Plugin 'honza/vim-snippets'       " snippets for various languages
+"Plugin 'YankRing.vim'             " https://github.com/vim-scripts/YankRing.vim
+
+" Navigation
+Plugin 'scrooloose/nerdtree'
+
+"Plugin 'tpope/vim-rails'          
+
+" Languages
+Plugin 'fatih/vim-go'             " go development
+Plugin 'derekwyatt/vim-scala'     " scala development
+Plugin 'vim-ruby/vim-ruby'        " ruby development
+Plugin 'pangloss/vim-javascript'  " javascript development
+
+" Markdown mode
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+
+" Development Tool Integration
+Plugin 'tpope/vim-fugitive'       " plugin on GitHub repo
+
+
+Plugin 'Valloric/YouCompleteMe'   " a fast, as-you-type, fuzzy-search code completion engine
+Plugin 'L9'                       " utilities and scripts from http://vim-scripts.org/vim/scripts.html
+Plugin 'git://git.wincent.com/command-t.git'  " open files and buffers
+"Plugin 'tpope/vim-sensible'
+Plugin 'kien/ctrlp.vim'           " Full path fuzzy file, buffer, mru, tag, ... finder
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+filetype plugin indent on
+
+syntax on
+
+if need_to_install_plugins == 1
+  echo "Installing plugins via Vundle. Please ignore warnings afterwards."
+  echo "This is a one-time operation that will take about a minute..."
+  silent! PluginInstall
+  echo "Done installing Vundle plugins!"
+  q
+endif
+
+" ====================================================================================
+
 "remap semi colon to colon in normal mode - no recursive
 nore ; :
 nore : ;
@@ -50,8 +129,8 @@ set sidescroll=1
 "set columns=80
 
 "load ftplugins and indent files
-filetype plugin on
-filetype indent on
+"filetype plugin on
+"filetype indent on
 
 "turn on syntax highlighting
 syntax on
