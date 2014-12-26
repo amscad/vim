@@ -1,6 +1,7 @@
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
-set nocompatible
+set nocompatible        " be iIMproved - required
+filetype off            " required
 
 "remap semi colon to colon in normal mode - no recursive
 nore ; :
@@ -8,6 +9,10 @@ nore : ;
 
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
+set noerrorbells                " No beeps
+set noswapfile                  " Don't use swapfile
+set nobackup                    " Don't create annoying backup files
 
 set guifont=Monaco:h16.00
 set background=dark
