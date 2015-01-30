@@ -9,5 +9,22 @@ By default, Vim will look for these files in your root, so you'll need to alias 
   ln -s ~/settings/vim/gvimrc .gvimrc
   ln -s ~/settings/vim-settings .vim
 
+== Latest version of vim
+This version of my vim files uses bundle to manage plugins:
+https://github.com/gmarik/Vundle.vim 
+
+To keep this upto date, I borrowed the idea to have vim automatically install necessary plugins from the good folks
+at PivotalLabs: https://github.com/pivotalcommon/vim-config/blob/master/vimrc
+
+Consequently the latest version of vim should be used.  I recommend using homebrew to
+install vim and macvim and updating regrularly.
+ brew update
+ brew install vim && brew install macvim
+
+Regularly run 
+ brew update && brew upgrade
+
+https://github.com/Valloric/YouCompleteMe
+
 = Colors
 I use the color scheme Molokai, with Monaco font
