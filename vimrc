@@ -8,7 +8,7 @@ filetype off            " required
 "
 " Based on http://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
 let need_to_install_plugins=0
-if empty(system("grep lazy_load ~/.vim/bundle/vundle/autoload/vundle.vim"))
+if empty(system("grep lazy_load ~/.vim/bundle/vundle/README.md"))
     echo "Installing Vundle..."
     echo ""
     silent !mkdir -p ~/.vim/bundle
@@ -18,7 +18,7 @@ if empty(system("grep lazy_load ~/.vim/bundle/vundle/autoload/vundle.vim"))
 endif
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'	  " let Vundle manage Vundle, required
