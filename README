@@ -1,1 +1,13 @@
-A refresh of my vim settings
+= A refresh of my vim settings
+
+= Installation
+
+The simplest thing you can do is to create a "VimSettings" directory somewhere on your drive. Mines in my home root (~/). Just do a git clone from this repo and put it to your drive somewhere, then you need to setup some aliases to point to the vimrc and gvimrc files.
+
+By default, Vim will look for these files in your root, so you'll need to alias them like this:
+  ln -s ~/.vim-settings/vimrc .vimrc
+  ln -s ~/.vim-settings/gvimrc .gvimrc
+  ln -s ~/.vim-settings .vim
+
+= Colors
+I use the color scheme Molokai, with Monaco font
