@@ -13,7 +13,7 @@ By default, Vim will look for these files in your root, so you'll need to alias 
 This version of my vim files uses bundle to manage plugins:
 https://github.com/gmarik/Vundle.vim 
 
-To keep this upto date, I borrowed the idea to have vim automatically install necessary plugins from the good folks
+To keep this up to date, I borrowed the idea to have vim automatically install necessary plugins from the good folks
 at PivotalLabs: https://github.com/pivotalcommon/vim-config/blob/master/vimrc
 
 Consequently the latest version of vim should be used.  I recommend using homebrew to
@@ -25,6 +25,11 @@ Regularly run
  * brew update && brew upgrade
 
 https://github.com/Valloric/YouCompleteMe
+
+## Manual installation requirements
+YouCompleteMe needs to be installed / compiled manually.  Follow the instructions for Mac
+from here: https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation
+
 
 # Colors
 I use the color scheme Molokai, with Monaco font
