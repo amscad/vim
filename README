@@ -28,3 +28,13 @@ https://github.com/Valloric/YouCompleteMe
 
 = Colors
 I use the color scheme Molokai, with Monaco font
+
+= Updating manually
+First, fetch the latest vim-config via Git. You can also rebase or merge your own
+project-specific customizations.
+
+To install the necessary bundles:
+ vim +PluginInstall +qall # or run :PluginInstall within Vim
+
+To upgrade bundles to their latest version, use the bang version:
+ vim +PluginInstall! +qall # or run :PluginInstall! within Vim
