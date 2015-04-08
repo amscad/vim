@@ -161,7 +161,18 @@ let g:syntastic_enable_signs=1
 
 
  " Go settings
- au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
+
+let g:go_highlight_space_tab_error = 0
+let g:go_highlight_array_whitespace_error = 0
+let g:go_highlight_trailing_whitespace_error = 0
+let g:go_highlight_space_tab_error = 0
+let g:go_highlight_extra_types = 0
+
+
+
 
 "remap jj to ESC in insert mode
 inoremap jj <Esc>
