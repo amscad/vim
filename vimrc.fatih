@@ -1,0 +1,87 @@
+" uses Plug manager from https://github.com/junegunn/vim-plug
+" take note of the help and readme
+
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'fatih/vim-go', {'for': 'go'}
+
+" YouCompleteMe autocompletion
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+
+Plug 'fatih/molokai'
+
+call plug#end()
+
+set nocompatible			" be iMproved, required
+filetype off				" required
+
+filetype plugin indent on		" required
+
+" general settings
+"
+set noerrorbells			" no beeps
+set number				" show line numbers
+set backspace=indent,eol,start		" make backspace key more powerful
+set showcmd				" show me what I'm typing
+set showmode				" show current mode
+
+set noswapfile				" dont use a swapfile
+set nobackup				" dont create a backup file when editing
+set encoding=utf-8			" set default encoding to UTF-8
+set autowrite				" auto save before :next, :makre etc.
+set autoread				" auto reread changed files without prompting
+set laststatus=2			" display the status line always
+"set hidden
+
+set incsearch				" show match while typing
+set hlsearch				" highlight found searches
+set ignorecase	 			" search case insensitive
+set smartcase				" but not when there are upper case chars
+
+"let mapleader = ","
+"let g:mapleader = ","
+
+" trim all whitespaces away
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" dont show stupid q: window
+map q: :q
+
+
+" time out on key codes, but not mappings
+" basically makes teminal vim work sanely (from fatih)
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
+" --------------------------------------------------
+" file type settings
+" --------------------------------------------------
+au BufNewFile,BufRead *.vim setlocal noet ts=2 sw=2 sts=2
+au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
+au BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
+
+" Go settings
+au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+
+
+" ============== YouCompleteMe =====================
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+
+" ==================== Fugitive ====================
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gb :Gblame<CR>
+vnoremap <leader>gb :Gblame<CR>
+
+" ===============Vim-go=============================
+let g:go_fmt_fail_silently = 1
+"let g:go_fmt_command = "goimports"  " prevents removing whites space working
+
+let g:go_highlight_space_tab_error = 0
+let g:go_highlight_array_whitespace_error = 0
+let g:go_highlight_trailing_whitespace_error = 0
+let g:go_highlight_space_tab_error = 0
+let g:go_highlight_extra_types = 0
