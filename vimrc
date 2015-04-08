@@ -27,43 +27,43 @@ Plugin 'gmarik/Vundle.vim'	  " let Vundle manage Vundle, required
 Plugin 'molokai'
 
 " General editing
-Plugin 'tpope/vim-repeat'         " remap '.' repeat in a way that plugins can use		
+Plugin 'tpope/vim-repeat'         " remap '.' repeat in a way that plugins can use
 "Plugin 'tpope/vim-endwise'        " end control structures 
-"Plugin 'tpope/vim-surround'       " manage surroundings ie () in pairs
+Plugin 'tpope/vim-surround'       " manage surroundings ie () in pairs
 "Plugin 'scrooloose/nerdcommenter' " for commenting
-Plugin 'sjl/gundo.vim'            " visualize your Vim undo tree.
+"Plugin 'sjl/gundo.vim'            " visualize your Vim undo tree.
 "Plugin 'godlygeek/tabular'        " align text http://vimcasts.org/episodes/aligning-text-with-tabular-vim/  
-Plugin 'scrooloose/syntastic'     " syntax checking 
+"Plugin 'scrooloose/syntastic'     " syntax checking 
 Plugin 'ervandew/supertab'        " use <Tab> for all your insert completion needs
 "Plugin 'garbas/vim-snipmate'      " text snippets similar to textmate
 "Plugin 'honza/vim-snippets'       " snippets for various languages
 "Plugin 'YankRing.vim'             " https://github.com/vim-scripts/YankRing.vim
 
 " Navigation
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 
 "Plugin 'tpope/vim-rails'          
 
 " Languages
 Plugin 'fatih/vim-go'             " go development
-Plugin 'derekwyatt/vim-scala'     " scala development
+"Plugin 'derekwyatt/vim-scala'     " scala development
 Plugin 'vim-ruby/vim-ruby'        " ruby development
 Plugin 'pangloss/vim-javascript'  " javascript development
 
 " Markdown mode
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
 
 
 " Development Tool Integration
-Plugin 'tpope/vim-fugitive'       " plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'       " plugin on GitHub repo
 
 
 Plugin 'Valloric/YouCompleteMe'   " a fast, as-you-type, fuzzy-search code completion engine
-Plugin 'L9'                       " utilities and scripts from http://vim-scripts.org/vim/scripts.html
-Plugin 'git://git.wincent.com/command-t.git'  " open files and buffers
+"Plugin 'L9'                       " utilities and scripts from http://vim-scripts.org/vim/scripts.html
+"Plugin 'git://git.wincent.com/command-t.git'  " open files and buffers
 "Plugin 'tpope/vim-sensible'
-Plugin 'kien/ctrlp.vim'           " Full path fuzzy file, buffer, mru, tag, ... finder
+"Plugin 'kien/ctrlp.vim'           " Full path fuzzy file, buffer, mru, tag, ... finder
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -128,10 +128,6 @@ set sidescroll=1
 "set column width to 120
 "set columns=80
 
-"load ftplugins and indent files
-"filetype plugin on
-"filetype indent on
-
 "turn on syntax highlighting
 syntax on
 
@@ -163,6 +159,9 @@ nnoremap <C-B> :BufExplorer<cr>
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
 
+
+ " Go settings
+ au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 
 "remap jj to ESC in insert mode
 inoremap jj <Esc>
