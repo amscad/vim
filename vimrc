@@ -172,6 +172,9 @@ let g:go_highlight_space_tab_error = 0
 let g:go_highlight_extra_types = 0
 
 
+" ==================== YouCompleteMe ====================
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_min_num_of_chars_for_completion = 1
 
 
 "remap jj to ESC in insert mode
