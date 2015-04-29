@@ -120,6 +120,10 @@ set softtabstop=2
 set expandtab
 set autoindent
 
+" Make it obvious where 80 characters is
+set textwidth=80
+set colorcolumn=+1
+
 "vertical/horizontal scroll off settings
 set scrolloff=3
 set sidescrolloff=7
