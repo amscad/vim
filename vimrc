@@ -40,7 +40,7 @@ Plugin 'ervandew/supertab'        " use <Tab> for all your insert completion nee
 "Plugin 'YankRing.vim'             " https://github.com/vim-scripts/YankRing.vim
 
 " Navigation
-"Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 
 "Plugin 'tpope/vim-rails'          
 
@@ -112,7 +112,7 @@ set linebreak   "wrap lines at convenient points
 
 "line numbers
 set number
-set pastetoggle=<F2>
+set pastetoggle=<F6>
 
 "indent settings
 set shiftwidth=2
@@ -149,6 +149,15 @@ set hidden
 if !has("gui")
   let g:CSApprox_loaded = 1
 endif
+
+"NERDTree stuff
+silent! nmap <C-p> :NERDTreeToggle<CR>
+silent! map <F2> :NERDTreeToggle<CR>
+silent! map <F3> :NERDTreeFind<CR>
+let g:NERDTreeToggle="<F2>"
+let g:NERDTreeMapActivateNode="<F3>"
+let g:NERDTreeMapPreview="<F4>"
+"NERDTree Stuff end
 
 "make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
