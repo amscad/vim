@@ -25,6 +25,7 @@ Plugin 'gmarik/Vundle.vim'	  " let Vundle manage Vundle, required
 
 " Colorschemes
 Plugin 'molokai'
+Plugin 'trusktr/seti.vim'
 
 " General editing
 Plugin 'tpope/vim-repeat'         " remap '.' repeat in a way that plugins can use
@@ -50,6 +51,12 @@ Plugin 'fatih/vim-go'             " go development
 Plugin 'vim-ruby/vim-ruby'        " ruby development
 Plugin 'pangloss/vim-javascript'  " javascript development
 
+"Plugin 'klen/python-mode'        "Comment out as conflicts with jedi-vim
+"Jedi vim -> more python stuffs
+Plugin 'davidhalter/jedi-vim'
+
+
+
 " Markdown mode
 "Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
@@ -63,7 +70,7 @@ Plugin 'Valloric/YouCompleteMe'   " a fast, as-you-type, fuzzy-search code compl
 "Plugin 'L9'                       " utilities and scripts from http://vim-scripts.org/vim/scripts.html
 "Plugin 'git://git.wincent.com/command-t.git'  " open files and buffers
 "Plugin 'tpope/vim-sensible'
-"Plugin 'kien/ctrlp.vim'           " Full path fuzzy file, buffer, mru, tag, ... finder
+"Plugin 'ctrlpvim/ctrlp.vim'           " Full path fuzzy file, buffer, mru, tag, ... finder
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -168,6 +175,17 @@ nnoremap <C-B> :BufExplorer<cr>
 "switch buffers easily
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 
+"make ctrl-s save the file - in both insert and normal mode
+"only works in macvim, need to 'stop the flow' in the terminal
+"works in the terminal by adding the following to .bashrc/.zshrc
+"stty -ixon
+inoremap <C-s> <esc>:w<CR>
+nnoremap <C-s> <esc>:w<CR>
+
+"make ctrl-q quit completely, in both normal and insert mode
+"dont save automatically
+inoremap <C-q> <esc>:qall<CR>
+nnoremap <C-q> <esc>:qall<CR>
 
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
@@ -189,9 +207,6 @@ let g:go_highlight_extra_types = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_of_chars_for_completion = 1
 
-" ===================== NERDTree =======================
-" open with <ctrl>-m
-map <C-n> :NERDTreeToggle<CR>
 
 "remap jj to ESC in insert mode
 inoremap jj <Esc>
