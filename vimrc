@@ -128,10 +128,15 @@ silent! map <F3> :NERDTreeFind<CR>
 let g:NERDTreeToggle="<F2>"
 let g:NERDTreeMapActivateNode="<F3>"
 let g:NERDTreeMapPreview="<F4>"
+" open on the right
+let g:NERDTreeWinPos = "right"
 
 " open NERDTree on startup and set focus to main window
-"autocmd VimEnter * NERDTree
-"autocmd VimEnter * wincmd p
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
+" close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "NERDTree Stuff end
 
 "make <c-l> clear the highlight as well as redraw
