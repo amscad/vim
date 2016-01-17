@@ -2,28 +2,29 @@
 
 # Installation
 
-The simplest thing you can do is to create a "VimSettings" directory somewhere on your drive. Mines in my home root (~/). Just do a git clone from this repo and put it to your drive somewhere, then you need to setup some aliases to point to the vimrc and gvimrc files.
+The simplest thing you can do is to create a "settings/vim" directory somewhere on your drive. Mines in my home root (~/). Just do a git clone from this repo and put it to your drive somewhere, then you need to setup some aliases to point to the vimrc and gvimrc files.
 
 By default, Vim will look for these files in your root, so you'll need to alias them like this:
   ln -s ~/settings/vim/vimrc .vimrc
   ln -s ~/settings/vim/gvimrc .gvimrc
-  ln -s ~/settings/vim-settings .vim
+  ln -s ~/settings/vim .vim
 
 ## Latest version of vim
-This version of my vim files uses bundle to manage plugins:
-https://github.com/gmarik/Vundle.vim 
+This version of my vim files uses vim-plug to manage plugins.  The original is from
+https://github.com/junegunn/vim-plug.
 
-To keep this up to date, I borrowed the idea to have vim automatically install necessary plugins from the good folks
-at PivotalLabs: https://github.com/pivotalcommon/vim-config/blob/master/vimrc
+A cloned version can be found here:
+https://github.com/amscad/vim-plug 
 
-Consequently the latest version of vim should be used.  I recommend using homebrew to
+The latest version of vim must be used.  I recommend using homebrew to
 install vim and macvim and updating regrularly.
  * brew update
- * brew install vim && brew install macvim
+ * brew install macvim --with-override-system-vim --appdir="/Applications" && brew linkapps
 
 Regularly run 
  * brew update && brew upgrade
 
+# Code completion is provided by YouCompleteMe - from here:
 https://github.com/Valloric/YouCompleteMe
 
 ## Manual installation requirements
@@ -39,7 +40,17 @@ First, fetch the latest vim-config via Git. You can also rebase or merge your ow
 project-specific customizations.
 
 To install the necessary bundles:
- * vim +PluginInstall +qall # or run :PluginInstall within Vim
 
-To upgrade bundles to their latest version, use the bang version:
- * vim +PluginInstall! +qall # or run :PluginInstall! within Vim
+ * vim +PlugInstall +qall # or run :PlugInstall within Vim
+
+To upgrade bundles to their latest version, use:
+ * vim +PlugUpdate # or run :PlugUpdate within Vim
+
+To remove unused plugins, use:
+ * PlugClean[!]
+the bang version will clean without promting
+
+To check the status of the plugins, use:
+ * PlugStatus
+
+Please refer to the vim-plug github readme for more details
