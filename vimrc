@@ -29,7 +29,7 @@ Plug 'vim-ruby/vim-ruby'        " ruby development
 Plug 'pangloss/vim-javascript'  " javascript development
 
 "A fast, as-you-type, fuzzy search code completion engine
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' } 
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } 
 
 "For exploring Go code - The plugin requires a Go helper program
 "go get github.com/garyburd/go-explorer/src/getool
