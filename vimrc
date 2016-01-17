@@ -1,104 +1,70 @@
-"Use Vim settings, rather then Vi settings (much better!).
-"This must be first, because it changes other options as a side effect.
-set nocompatible        " be iIMproved - required
-filetype off            " required
-
-" ====================================================================================
-" setup vundle and plugins
-"
-" Based on http://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
-let need_to_install_plugins=0
-if empty(system("grep lazy_load ~/.vim/bundle/vundle/autoload/vundle.vim"))
-    echo "Installing Vundle..."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !rm -rf ~/.vim/bundle/vundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let need_to_install_plugins=1
-endif
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'	  " let Vundle manage Vundle, required
+call plug#begin('~/.vim/plugged')
 
 " Colorschemes
-Plugin 'molokai'
-Plugin 'trusktr/seti.vim'
+Plug 'fatih/molokai'
+" Plug 'molokai'
+Plug 'trusktr/seti.vim'
+
+"Easy align
+Plug 'junegunn/vim-easy-align'
+
+"Snippets
+Plug 'SirVer/ultisnips'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " General editing
-Plugin 'tpope/vim-repeat'         " remap '.' repeat in a way that plugins can use
-"Plugin 'tpope/vim-endwise'        " end control structures 
-Plugin 'tpope/vim-surround'       " manage surroundings ie () in pairs
-"Plugin 'scrooloose/nerdcommenter' " for commenting
-"Plugin 'sjl/gundo.vim'            " visualize your Vim undo tree.
-"Plugin 'godlygeek/tabular'        " align text http://vimcasts.org/episodes/aligning-text-with-tabular-vim/  
-"Plugin 'scrooloose/syntastic'     " syntax checking 
-Plugin 'ervandew/supertab'        " use <Tab> for all your insert completion needs
-"Plugin 'garbas/vim-snipmate'      " text snippets similar to textmate
-"Plugin 'honza/vim-snippets'       " snippets for various languages
-"Plugin 'YankRing.vim'             " https://github.com/vim-scripts/YankRing.vim
+Plug 'tpope/vim-repeat'         " remap '.' repeat in a way that plugins can use
+Plug 'tpope/vim-surround'       " manage surroundings ie () in pairs
+Plug 'scrooloose/nerdcommenter' " for commenting
+"Plug 'scrooloose/syntastic'     " syntax checking 
+Plug 'ervandew/supertab'        " use <Tab> for all your insert completion needs
 
-" Navigation
-Plugin 'scrooloose/nerdtree'
-
-"Plugin 'tpope/vim-rails'          
+"Plug 'tpope/vim-rails'          
 
 " Languages
-Plugin 'fatih/vim-go'             " go development
-"Plugin 'derekwyatt/vim-scala'     " scala development
-Plugin 'vim-ruby/vim-ruby'        " ruby development
-Plugin 'pangloss/vim-javascript'  " javascript development
+Plug 'fatih/vim-go'             " go development
+Plug 'vim-ruby/vim-ruby'        " ruby development
+Plug 'pangloss/vim-javascript'  " javascript development
 
-"Plugin 'klen/python-mode'        "Comment out as conflicts with jedi-vim
-"Jedi vim -> more python stuffs
-Plugin 'davidhalter/jedi-vim'
+"A fast, as-you-type, fuzzy search code completion engine
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' } 
 
-
-
-" Markdown mode
-"Plugin 'godlygeek/tabular'
-"Plugin 'plasticboy/vim-markdown'
-
-
-" Development Tool Integration
-"Plugin 'tpope/vim-fugitive'       " plugin on GitHub repo
-
-
-Plugin 'Valloric/YouCompleteMe'   " a fast, as-you-type, fuzzy-search code completion engine
-"Plugin 'L9'                       " utilities and scripts from http://vim-scripts.org/vim/scripts.html
-"Plugin 'git://git.wincent.com/command-t.git'  " open files and buffers
-"Plugin 'tpope/vim-sensible'
-"Plugin 'ctrlpvim/ctrlp.vim'           " Full path fuzzy file, buffer, mru, tag, ... finder
+"For exploring Go code - The plugin requires a Go helper program
+"go get github.com/garyburd/go-explorer/src/getool
+Plug 'garyburd/go-explorer'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 
-filetype plugin indent on
+set nocompatible           " be iMproved, required
+filetype off               " required
 
-syntax on
+filetype plugin indent on  " required
 
-if need_to_install_plugins == 1
-  echo "Installing plugins via Vundle. Please ignore warnings afterwards."
-  echo "This is a one-time operation that will take about a minute..."
-  silent! PluginInstall
-  echo "Done installing Vundle plugins!"
-  q
-endif
-
-" ====================================================================================
+"
+" Settings
+" 
 
 "remap semi colon to colon in normal mode - no recursive
 "nore ; :
 "nore : ;
 
 "allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
 set noerrorbells                " No beeps
-set noswapfile                  " Don't use swapfile
+set number                      "line numbers
+set backspace=indent,eol,start
+set showcmd     "show incomplete cmds down the bottom
+set showmode    "show current mode down the bottom
+
 set nobackup                    " Don't create annoying backup files
+set noswapfile                  " Don't use swapfile
+
+set splitright                  " Split vertical windows right to the current windows
+set splitbelow                  " Split horizontal windows below to the current windows
+set encoding=utf-8              " Set default encoding to UTF-8
+set autowrite                   " Automatically save before :next, :make etc.
 
 set guifont=Monaco:h16.00
 set background=dark
@@ -106,19 +72,23 @@ colorscheme molokai
 
 "store lots of :cmdline history
 set history=1000
-set showcmd     "show incomplete cmds down the bottom
-set showmode    "show current mode down the bottom
 
 set incsearch   "find the next match as we type the search
-set hlsearch    "hilight searches by default
+set hlsearch    "highlight searches by default
+set ignorecase  "Search case insensitive
+
+" speed up syntax highlighting
+"set nocursorcolumn
+"set nocursorline
 
 "set nowrap      "dont wrap lines
 set wrap        "wrap lines
+" Make it obvious where 80 characters is
+"set textwidth=80
 set textwidth=90
+set colorcolumn=+1
 set linebreak   "wrap lines at convenient points
 
-"line numbers
-set number
 set pastetoggle=<F6>
 
 "indent settings
@@ -127,17 +97,11 @@ set softtabstop=2
 set expandtab
 set autoindent
 
-" Make it obvious where 80 characters is
-set textwidth=80
-set colorcolumn=+1
 
 "vertical/horizontal scroll off settings
 set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
-
-"set column width to 120
-"set columns=80
 
 "turn on syntax highlighting
 syntax on
@@ -164,6 +128,10 @@ silent! map <F3> :NERDTreeFind<CR>
 let g:NERDTreeToggle="<F2>"
 let g:NERDTreeMapActivateNode="<F3>"
 let g:NERDTreeMapPreview="<F4>"
+
+" open NERDTree on startup and set focus to main window
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
 "NERDTree Stuff end
 
 "make <c-l> clear the highlight as well as redraw
@@ -193,14 +161,29 @@ let g:syntastic_enable_signs=1
 
  " Go settings
 au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
-let g:go_fmt_fail_silently = 1
+"let g:go_fmt_fail_silently = 1
+let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = "goimports"
+let g:go_autodetect_gopath = 1
 
 let g:go_highlight_space_tab_error = 0
 let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_space_tab_error = 0
 let g:go_highlight_extra_types = 0
+let g:go_highlight_operators = 0
+"Not sure what the below does, copied from fatih, but commenting out for now
+"au FileType go nmap <Leader>s <Plug>(go-def-split)
+"au FileType go nmap <Leader>v <Plug>(go-def-vertical)
+"au FileType go nmap <Leader>in <Plug>(go-info)
+"au FileType go nmap <Leader>ii <Plug>(go-implements)
+
+au FileType go nmap <leader>r  <Plug>(go-run)
+au FileType go nmap <leader>b  <Plug>(go-build)
+au FileType go nmap <leader>g  <Plug>(go-gbbuild)
+au FileType go nmap <leader>t  <Plug>(go-test-compile)
+au FileType go nmap <Leader>d <Plug>(go-doc)
+au FileType go nmap <Leader>f :GoImports<CR>
 
 
 " ==================== YouCompleteMe ====================
