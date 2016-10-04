@@ -2,6 +2,9 @@
 rm ~/.vim
 rm ~/.vimrc
 
+mkdir -p ~/settings/vim
+git clone https://github.com/amscad/vim.git ~/settings/vim
+
 #setup new links to use
 ln -s ~/settings/vim ~/.vim
 ln -s ~/settings/vim/vimrc ~/.vimrc
