@@ -54,3 +54,8 @@ To check the status of the plugins, use:
  * PlugStatus
 
 Please refer to the vim-plug github readme for more details
+
+# Automated install 
+Check the source - folders and files are deleted.  YOU HAVE BEEN WARNED!!!!
+
+wget --no-check-certificate https://raw.github.com/amscad/vim/master/setup.sh -O - | sh
