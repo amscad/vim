@@ -1,13 +1,14 @@
 #remove old links (assuming they are links)
-rm ~/.vim
+rm -rf ~/.vim
 rm ~/.vimrc
 
-mkdir -p ~/settings/vim
-git clone https://github.com/amscad/vim.git ~/settings/vim
+#mkdir -p ~/settings/vim
+#git clone https://github.com/amscad/vim.git ~/settings/vim
 
 #setup new links to use
-ln -s ~/settings/vim ~/.vim
-ln -s ~/settings/vim/vimrc ~/.vimrc
+mkdir -p ~/Dropbox/settings/vim
+ln -s ~/Dropbox/settings/vim ~/.vim
+ln -s ~/Dropbox/settings/vim/vimrc ~/.vimrc
 
 #install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -15,4 +16,4 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     
 vim +PlugInstall +qall 
 
-~/settings/vim/YouCompleteMe/install.py
+~/Dropbox/settings/vim/plugged/YouCompleteMe/install.py

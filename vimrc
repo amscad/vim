@@ -28,6 +28,9 @@ Plug 'fatih/vim-go'             " go development
 Plug 'vim-ruby/vim-ruby'        " ruby development
 Plug 'pangloss/vim-javascript'  " javascript development
 
+" JSON formatting
+Plug 'elzr/vim-json'            " JSON highlighting
+
 "A fast, as-you-type, fuzzy search code completion engine
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } 
 
@@ -171,12 +174,23 @@ let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = "goimports"
 let g:go_autodetect_gopath = 1
 
-let g:go_highlight_space_tab_error = 0
+
 let g:go_highlight_array_whitespace_error = 0
+let g:go_highlight_extra_types = 1      " was 0
+let g:go_highlight_operators = 1        " was 0
+let g:go_highlight_space_tab_error = 1  " was 00
 let g:go_highlight_trailing_whitespace_error = 0
-let g:go_highlight_space_tab_error = 0
-let g:go_highlight_extra_types = 0
-let g:go_highlight_operators = 0
+
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+
+let g:go_auto_sameids = 1               " highlight other variables with same name
+let g:go_auto_type_info = 1							" auto add imports
+
 "Not sure what the below does, copied from fatih, but commenting out for now
 "au FileType go nmap <Leader>s <Plug>(go-def-split)
 "au FileType go nmap <Leader>v <Plug>(go-def-vertical)
