@@ -1,0 +1,55 @@
+"store lots of :cmdline history
+set history=1000
+
+set pastetoggle=<F6>
+
+"dont load csapprox if we no gui support - silences an annoying warning
+if !has("gui")
+  let g:CSApprox_loaded = 1
+endif
+
+"NERDTree stuff
+silent! nmap <C-p> :NERDTreeToggle<CR>
+silent! map <F2> :NERDTreeToggle<CR>
+silent! map <F3> :NERDTreeFind<CR>
+let g:NERDTreeToggle="<F2>"
+let g:NERDTreeMapActivateNode="<F3>"
+let g:NERDTreeMapPreview="<F4>"
+" open on the right
+let g:NERDTreeWinPos = "right"
+
+" open NERDTree on startup and set focus to main window
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
+" close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"NERDTree Stuff end
+
+"make <c-l> clear the highlight as well as redraw
+"nnoremap <C-L> :nohls<CR><C-L>
+"inoremap <C-L> <C-O>:nohls<CR>
+
+"switch buffers easily
+":nnoremap <F5> :buffers<CR>:buffer<Space>
+
+"make ctrl-s save the file - in both insert and normal mode
+"only works in macvim, need to 'stop the flow' in the terminal
+"works in the terminal by adding the following to .bashrc/.zshrc
+"stty -ixon
+"inoremap <C-s> <esc>:w<CR>
+"nnoremap <C-s> <esc>:w<CR>
+
+"make ctrl-q quit completely, in both normal and insert mode
+"dont save automatically
+inoremap <C-q> <esc>:qall<CR>
+nnoremap <C-q> <esc>:qall<CR>
+
+" ==================== YouCompleteMe ====================
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+
+
+"remap jj to ESC in insert mode
+inoremap jj <Esc>
+nnoremap JJJJ <Nop>
