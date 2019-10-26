@@ -1,4 +1,4 @@
-" Auto install vim-plug if it is not installed.  (per
+"e Auto install vim-plug if it is not installed.  (per
 " junegunn/vim-plug/wiki/tips#automatic-installation)
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -109,7 +109,6 @@ set softtabstop=2
 set expandtab
 set autoindent
 
-
 "vertical/horizontal scroll off settings
 set scrolloff=3
 set sidescrolloff=7
@@ -133,14 +132,13 @@ if !has("gui")
   let g:CSApprox_loaded = 1
 endif
 
+" =============================================================================
+" Mappings
+let mapleader = ","
+
 "NERDTree stuff
-silent! nmap <C-p> :NERDTreeToggle<CR>
-silent! map <F2> :NERDTreeToggle<CR>
-silent! map <F3> :NERDTreeFind<CR>
-let g:NERDTreeToggle="<F2>"
-let g:NERDTreeMapActivateNode="<F3>"
-let g:NERDTreeMapPreview="<F4>"
-" open on the right
+noremap <C-n> :NERDTreeToggle<cr>
+"open on the right
 let g:NERDTreeWinPos = "right"
 
 " open NERDTree on startup and set focus to main window
@@ -153,7 +151,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
-inoremap <C-L> <C-O>:nohls<CR>
+"inoremap <C-L> <C-O>:nohls<CR>
 
 "map to bufexplorer
 nnoremap <C-B> :BufExplorer<cr>
@@ -164,8 +162,8 @@ nnoremap <C-B> :BufExplorer<cr>
 "only works in macvim, need to 'stop the flow' in the terminal
 "works in the terminal by adding the following to .bashrc/.zshrc
 "stty -ixon
-inoremap <C-s> <esc>:w<CR>
-nnoremap <C-s> <esc>:w<CR>
+inoremap <C-w> <esc>:w<CR>
+nnoremap <C-w> <esc>:w<CR>
 
 "make ctrl-q quit completely, in both normal and insert mode
 "dont save automatically
