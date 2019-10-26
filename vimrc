@@ -86,7 +86,8 @@ set history=1000
 
 set incsearch   "find the next match as we type the search
 set hlsearch    "highlight searches by default
-set ignorecase  "Search case insensitive
+set ignorecase  "Search case insensitive...
+set smartcase   " ...unless it starts with an upper case 
 
 " speed up syntax highlighting
 "set nocursorcolumn
