@@ -627,38 +627,3 @@ endif
 "" Convenience variables
 "*****************************************************************************
 
-" vim-airline
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-if !exists('g:airline_powerline_fonts')
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
-  let g:airline_left_sep          = 'â–¶'
-  let g:airline_left_alt_sep      = 'Â»'
-  let g:airline_right_sep         = 'â--€'
-  let g:airline_right_alt_sep     = 'Â«'
-  let g:airline#extensions#branch#prefix     = 'â¤'' "âž", âž¥, âŽ‡
-  let g:airline#extensions#readonly#symbol   = 'âŠ˜'
-  let g:airline#extensions#linecolumn#prefix = 'Â¶'
-  let g:airline#extensions#paste#symbol      = 'Ï'
-  let g:airline_symbols.linenr    = 'âŠ'
-  let g:airline_symbols.branch    = 'âŽ‡'
-  let g:airline_symbols.paste     = 'Ï'
-  let g:airline_symbols.paste     = 'Ãž'
-  let g:airline_symbols.paste     = 'âˆ¥'
-  let g:airline_symbols.whitespace = 'Îž'
-else
-  let g:airline#extensions#tabline#left_sep = 'î‚°'
-  let g:airline#extensions#tabline#left_alt_sep = 'î‚±'
-
-  " powerline symbols
-  let g:airline_left_sep = 'î‚°'
-  let g:airline_left_alt_sep = 'î‚±'
-  let g:airline_right_sep = 'î‚²'
-  let g:airline_right_alt_sep = 'î‚³'
-  let g:airline_symbols.branch = 'î‚ '
-  let g:airline_symbols.readonly = 'î‚¢'
-  let g:airline_symbols.linenr = 'î‚¡'
-endif
