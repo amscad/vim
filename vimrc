@@ -162,8 +162,8 @@ nnoremap <C-B> :BufExplorer<cr>
 "only works in macvim, need to 'stop the flow' in the terminal
 "works in the terminal by adding the following to .bashrc/.zshrc
 "stty -ixon
-inoremap <C-w> <esc>:w<CR>
-nnoremap <C-w> <esc>:w<CR>
+inoremap <C-s> <esc>:w<CR>
+nnoremap <C-s> <esc>:w<CR>
 
 "make ctrl-q quit completely, in both normal and insert mode
 "dont save automatically
