@@ -80,6 +80,20 @@ nnoremap <C-B> :BufExplorer<cr>
 inoremap <C-s> <esc>:w<CR>
 nnoremap <C-s> <esc>:w<CR>
 
+" no-one is happy until the following mappings are made
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+
+
+
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
 
