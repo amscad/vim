@@ -34,9 +34,7 @@ set ignorecase                  " Search case insensitive
 
 "set nowrap                     " dont wrap lines
 set wrap                        " wrap lines
-" Make it obvious where 80 characters is
-"set textwidth=80
-set textwidth=90
+set textwidth=90		" make it obvious where 90 chars is
 set colorcolumn=+1
 set linebreak                   " wrap lines at convenient points
 
