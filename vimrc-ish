@@ -78,8 +78,7 @@ nnoremap <C-B> :BufExplorer<cr>
 inoremap <C-s> <esc>:w<CR>
 nnoremap <C-s> <esc>:w<CR>
 
-
-" no-one is happy until the following mappings are made
+" handle mistyping save and quit commands
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!
