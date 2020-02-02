@@ -1,4 +1,4 @@
-"e Auto install vim-plug if it is not installed.  (per
+"Auto install vim-plug if it is not installed.  (per
 " junegunn/vim-plug/wiki/tips#automatic-installation)
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -65,8 +65,12 @@ filetype plugin indent on  " required
 set noerrorbells                " No beeps
 set number                      " line numbers
 set backspace=indent,eol,start
-set showcmd                     " show incomplete cmds down the bottom
-set showmode                    " show current mode down the bottom
+set showcmd     "show incomplete cmds down the bottom
+set showmode    "show current mode down the bottom
+
+set nobackup                    " Don't create annoying backup files
+set noswapfile                  " Don't use swapfile
+
 set splitright                  " Split vertical windows right to the current windows
 set splitbelow                  " Split horizontal windows below to the current windows
 set encoding=utf-8              " Set default encoding to UTF-8
@@ -74,7 +78,8 @@ set autowrite                   " Automatically save before :next, :make etc.
 
 set guifont=Monaco:h16.00
 set background=dark
-colorscheme molokai
+"colorscheme molokai
+colorscheme ron
 
 "store lots of :cmdline history
 set history=1000
@@ -83,7 +88,7 @@ set history=1000
 set incsearch                   " find the next match as we type the search
 set hlsearch                    " highlight searches by default
 set ignorecase                  " Search case insensitive
-set smartcase   " ...unless it starts with an upper case 
+set smartcase   		" ...unless it starts with an upper case 
 
 " speed up syntax highlighting
 "set nocursorcolumn
@@ -143,7 +148,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
-"inoremap <C-L> <C-O>:nohls<CR>
+inoremap <C-L> <C-O>:nohls<CR>
 
 "map to bufexplorer
 nnoremap <C-B> :BufExplorer<cr>
