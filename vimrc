@@ -62,16 +62,11 @@ filetype plugin indent on  " required
 "nore ; :
 "nore : ;
 
-"allow backspacing over everything in insert mode
 set noerrorbells                " No beeps
-set number                      "line numbers
+set number                      " line numbers
 set backspace=indent,eol,start
-set showcmd     "show incomplete cmds down the bottom
-set showmode    "show current mode down the bottom
-
-set nobackup                    " Don't create annoying backup files
-set noswapfile                  " Don't use swapfile
-
+set showcmd                     " show incomplete cmds down the bottom
+set showmode                    " show current mode down the bottom
 set splitright                  " Split vertical windows right to the current windows
 set splitbelow                  " Split horizontal windows below to the current windows
 set encoding=utf-8              " Set default encoding to UTF-8
@@ -84,24 +79,21 @@ colorscheme molokai
 "store lots of :cmdline history
 set history=1000
 
-set incsearch   "find the next match as we type the search
-set hlsearch    "highlight searches by default
-set ignorecase  "Search case insensitive...
+
+set incsearch                   " find the next match as we type the search
+set hlsearch                    " highlight searches by default
+set ignorecase                  " Search case insensitive
 set smartcase   " ...unless it starts with an upper case 
 
 " speed up syntax highlighting
 "set nocursorcolumn
 "set nocursorline
 
-"set nowrap      "dont wrap lines
-set wrap        "wrap lines
-" Make it obvious where 80 characters is
-"set textwidth=80
-set textwidth=90
+"set nowrap                     " dont wrap lines
+set wrap                        " wrap lines
+set textwidth=90		" make it obvious where 90 chars is
 set colorcolumn=+1
-set linebreak   "wrap lines at convenient points
-
-set pastetoggle=<F6>
+set linebreak                   " wrap lines at convenient points
 
 "indent settings
 set shiftwidth=2
@@ -165,10 +157,25 @@ nnoremap <C-B> :BufExplorer<cr>
 inoremap <C-s> <esc>:w<CR>
 nnoremap <C-s> <esc>:w<CR>
 
+
 "make ctrl-q quit completely, in both normal and insert mode
 "dont save automatically
 inoremap <C-q> <esc>:qall<CR>
 nnoremap <C-q> <esc>:qall<CR>
+
+
+" handle mistyping save and quit commands
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+
 
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
