@@ -8,12 +8,10 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" General editing
-Plug 'tpope/vim-repeat'         " remap '.' repeat in a way that plugins can use
-Plug 'tpope/vim-surround'       " manage surroundings ie () in pairs
+Plug 'elzr/vim-json', {'for' : 'json'} " JSON highlightingPlug 'tpope/vim-repeat'         " remap '.' repeat in a way that plugins can use
 Plug 'pangloss/vim-javascript'  " javascript development
+Plug 'tpope/vim-surround'       " manage surroundings ie () in pairs
+Plug 'vim-ruby/vim-ruby'        " ruby development
 
-" JSON formatting
-Plug 'elzr/vim-json'            " JSON highlighting
 " All of your Plugins must be added before the following line
 call plug#end()                 " required
