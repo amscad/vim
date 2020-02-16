@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'elzr/vim-json', {'for' : 'json'} " JSON highlightingPlug 'tpope/vim-repeat'         " remap '.' repeat in a way that plugins can use
 Plug 'pangloss/vim-javascript'  " javascript development
 Plug 'tpope/vim-surround'       " manage surroundings ie () in pairs
+Plug 'tpope/vim-fugitive'       " manage surroundings ie () in pairs
 Plug 'vim-ruby/vim-ruby'        " ruby development
 
 " All of your Plugins must be added before the following line
