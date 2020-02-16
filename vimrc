@@ -206,6 +206,17 @@ map q: :q
 noremap <Leader>n :NERDTreeToggle<cr>
 noremap <Leader>f :NERDTreeFind<cr>
 
+" open on the right
+let g:NERDTreeWinPos = "right"
+
+" open NERDTree on startup and set focus to main window
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
+" close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" ==================================================
 " handle mistyping save and quit commands
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
