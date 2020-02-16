@@ -13,7 +13,7 @@ echo "Running on $OSTYPE"
 
 # setup new links to use
 ln -s "$DIR/vimrc" ~/.vimrc
-ln -s "$DIR/vimrc.mac.bundles" ~/.vimrc.bundles
+ln -s "$DIR/vimrc.ish.bundles" ~/.vimrc.bundles
 
 #install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
