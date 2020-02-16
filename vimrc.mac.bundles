@@ -8,36 +8,24 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Colorschemes
-Plug 'fatih/molokai'
-" Plug 'molokai'
-Plug 'trusktr/seti.vim'
-
-"Easy align
-Plug 'junegunn/vim-easy-align'
-
-"Snippets
-Plug 'SirVer/ultisnips'
-
-" On-demand loading
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
-" General editing
+Plug 'SirVer/ultisnips'         "Snippets
+Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
+Plug 'elzr/vim-json', {'for' : 'json'} " JSON highlighting
+Plug 'ervandew/supertab'        " use <Tab> for all your insert completion needs
+Plug 'fatih/molokai'            " molokai colorscheme
+Plug 'fatih/vim-go'             " go development
+"Plug 'godlygeek/tabular'        " line up text
+Plug 'junegunn/vim-easy-align'  " Easy align
+Plug 'pangloss/vim-javascript'  " javascript development
+Plug 'scrooloose/nerdcommenter' " for commenting
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " On-demand loading
+"Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-rails'          
 Plug 'tpope/vim-repeat'         " remap '.' repeat in a way that plugins can use
 Plug 'tpope/vim-surround'       " manage surroundings ie () in pairs
-Plug 'scrooloose/nerdcommenter' " for commenting
-"Plug 'scrooloose/syntastic'     " syntax checking 
-Plug 'ervandew/supertab'        " use <Tab> for all your insert completion needs
-
-"Plug 'tpope/vim-rails'          
-
-" Languages
-Plug 'fatih/vim-go'             " go development
+Plug 'trusktr/seti.vim'         " seti colorscheme
 Plug 'vim-ruby/vim-ruby'        " ruby development
-Plug 'pangloss/vim-javascript'  " javascript development
-
-" JSON formatting
-Plug 'elzr/vim-json'            " JSON highlighting
 
 "A fast, as-you-type, fuzzy search code completion engine
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } 
