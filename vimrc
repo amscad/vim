@@ -156,7 +156,7 @@ set statusline+=\ %*
 
 " go command status (requires vim-go)
 set statusline+=%#goStatuslineColor#
-set statusline+=%{go#statusline#Show()}
+"set statusline+=%{go#statusline#Show()}
 set statusline+=%*
 
 " right section seperator
@@ -217,6 +217,11 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
+
+noremap <Up> gk
+noremap <Down> gj
+noremap j gj
+noremap k gk
 
 "remap jj to ESC in insert mode
 inoremap jj <Esc>
