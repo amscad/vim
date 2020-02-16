@@ -1,37 +1,39 @@
-" I use the same vimrc for both nvim and vim
+"Auto install vim-plug if it is not installed.  (per
+" junegunn/vim-plug/wiki/tips#automatic-installation)
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'Raimondi/delimitMate'
-Plug 'SirVer/ultisnips'
-Plug 'arthurxavierx/vim-caser'
-Plug 'cespare/vim-toml'
-Plug 'corylanou/vim-present', {'for' : 'present'}
+Plug 'SirVer/ultisnips'         "Snippets
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
-Plug 'elzr/vim-json', {'for' : 'json'}
-Plug 'ervandew/supertab'
-Plug 'fatih/molokai'
-Plug 'fatih/vim-go'
-Plug 'fatih/vim-hclfmt'
-Plug 'fatih/vim-nginx' , {'for' : 'nginx'}
-Plug 'godlygeek/tabular'
-Plug 'hashivim/vim-hashicorp-tools'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'roxma/vim-tmux-clipboard'
-Plug 'scrooloose/nerdtree'
-Plug 't9md/vim-choosewin'
-Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
-Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
+Plug 'elzr/vim-json', {'for' : 'json'} " JSON highlighting
+Plug 'ervandew/supertab'        " use <Tab> for all your insert completion needs
+Plug 'fatih/molokai'            " molokai colorscheme
+Plug 'fatih/vim-go'             " go development
+"Plug 'godlygeek/tabular'        " line up text
+Plug 'junegunn/vim-easy-align'  " Easy align
+Plug 'pangloss/vim-javascript'  " javascript development
+Plug 'scrooloose/nerdcommenter' " for commenting
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " On-demand loading
+"Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-scriptease'
-Plug 'tyru/open-browser.vim'
+"Plug 'tpope/vim-rails'          
+Plug 'tpope/vim-repeat'         " remap '.' repeat in a way that plugins can use
+Plug 'tpope/vim-surround'       " manage surroundings ie () in pairs
+Plug 'trusktr/seti.vim'         " seti colorscheme
+Plug 'vim-ruby/vim-ruby'        " ruby development
 
-call plug#end()
+"A fast, as-you-type, fuzzy search code completion engine
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } 
+
+"For exploring Go code - The plugin requires a Go helper program
+"go get github.com/garyburd/go-explorer/src/getool
+Plug 'garyburd/go-explorer'
+
+" All of your Plugins must be added before the following line
+call plug#end()            " required
 
