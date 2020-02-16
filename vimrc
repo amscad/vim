@@ -1,22 +1,6 @@
-"Auto install vim-plug if it is not installed.  (per
-" junegunn/vim-plug/wiki/tips#automatic-installation)
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
 endif
-
-call plug#begin('~/.vim/plugged')
-
-" General editing
-Plug 'tpope/vim-repeat'         " remap '.' repeat in a way that plugins can use
-Plug 'tpope/vim-surround'       " manage surroundings ie () in pairs
-Plug 'pangloss/vim-javascript'  " javascript development
-
-" JSON formatting
-Plug 'elzr/vim-json'            " JSON highlighting
-" All of your Plugins must be added before the following line
-call plug#end()            " required
 
 set nocompatible                " be iMproved, required
 filetype off                    " required
