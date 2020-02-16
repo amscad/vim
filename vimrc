@@ -1,5 +1,4 @@
-
-"e Auto install vim-plug if it is not installed.  (per
+"Auto install vim-plug if it is not installed.  (per
 " junegunn/vim-plug/wiki/tips#automatic-installation)
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -34,23 +33,22 @@ set noerrorbells                " No beeps
 set number                      " line numbers
 set backspace=indent,eol,start
 set showcmd                     " show incomplete cmds down the bottom
+set ruler                       " show the cursor position all the time
 set showmode                    " show current mode down the bottom
 set splitright                  " Split vertical windows right to the current windows
 set splitbelow                  " Split horizontal windows below to the current windows
 set encoding=utf-8              " Set default encoding to UTF-8
 set autowrite                   " Automatically save before :next, :make etc.
-"store lots of :cmdline history
-set history=1000
-
+set history=1000                " Store lots of :cmdline history
 
 set incsearch                   " find the next match as we type the search
 set hlsearch                    " highlight searches by default
 set ignorecase                  " Search case insensitive
-set smartcase   " ...unless it starts with an upper case 
+set smartcase                   " ...unless it starts with an upper case 
 
 "set nowrap                     " dont wrap lines
 set wrap                        " wrap lines
-set textwidth=90		" make it obvious where 90 chars is
+set textwidth=90		            " make it obvious where 90 chars is
 set colorcolumn=+1
 set linebreak                   " wrap lines at convenient points
 
