@@ -6,10 +6,8 @@ set nocompatible                " be iMproved, required
 filetype off                    " required
 filetype plugin indent on       " required
 
-"
+" =============================================================================
 " Settings
-" 
-
 set laststatus=2
 set encoding=utf-8              " Set default encoding to UTF-8
 set autoread                    " Automatically reread changed files without asking me anything
