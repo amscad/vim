@@ -28,7 +28,7 @@ Plug 'trusktr/seti.vim'         " seti colorscheme
 Plug 'vim-ruby/vim-ruby'        " ruby development
 
 "A fast, as-you-type, fuzzy search code completion engine
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } 
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } 
 
 "For exploring Go code - The plugin requires a Go helper program
 "go get github.com/garyburd/go-explorer/src/getool
