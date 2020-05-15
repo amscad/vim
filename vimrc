@@ -53,6 +53,7 @@ syntax on
 "some stuff to get the mouse going in term
 set mouse=a                     " Enable mouse mode
 set ttymouse=xterm2
+colorscheme molokai
 
 " =============================================================================
 " File settings 
@@ -189,8 +190,8 @@ nnoremap <silent> <leader>q :q!<CR>
 
 "make ctrl-q quit completely, in both normal and insert mode
 "dont save automatically
-inoremap <C-q> <esc>:qall<CR>
-nnoremap <C-q> <esc>:qall<CR>
+inoremap <C-x> <esc>:qall<CR>
+nnoremap <C-x> <esc>:qall<CR>
 
 " Better split switching
 map <C-j> <C-W>j
