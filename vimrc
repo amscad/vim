@@ -53,6 +53,8 @@ syntax on
 "some stuff to get the mouse going in term
 set mouse=a                     " Enable mouse mode
 set ttymouse=xterm2
+set t_Co=256                    " Use 256 colors
+
 colorscheme molokai
 
 " =============================================================================
