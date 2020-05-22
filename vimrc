@@ -7,6 +7,19 @@ filetype off                    " required
 filetype plugin indent on       " required
 
 " =============================================================================
+" ==================== Plugin stuff ================
+" workout if a plugin is loaded or not
+" works with vim plug only
+" use to check if some features that require a plugin
+" are loaded 
+function! PlugLoaded(name)	
+  return match(&runtimepath, a:name) != -1
+"  if match(&runtimepath, a:name) != -1
+"    echom " ... "
+"  endif
+endfunction
+
+" =============================================================================
 " Settings
 set laststatus=2
 set encoding=utf-8              " Set default encoding to UTF-8
@@ -55,7 +68,9 @@ set mouse=a                     " Enable mouse mode
 set ttymouse=xterm2
 set t_Co=256                    " Use 256 colors
 
-colorscheme molokai
+if PlugLoaded('molokai') 
+  colorscheme molokai
+endif
 
 " =============================================================================
 " File settings 
@@ -83,7 +98,6 @@ augroup filetypedetect
   autocmd FileType json setlocal expandtab shiftwidth=2 tabstop=2
   autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 augroup END
-
 
 " =============================================================================
 " StatusLine
@@ -134,13 +148,15 @@ function! StatusLinePercent()
 endfunction
 
 function! StatusLineLeftInfo()
- let branch = fugitive#head()
+" let branch = fugitive#head()
+ let branch = ''
  let filename = '' != expand('%:t') ? expand('%:t') : '[No Name]'
  if branch !=# ''
    return printf("%s | %s", branch, filename)
  endif
  return filename
 endfunction
+
 
 exe 'hi! myInfoColor ctermbg=240 ctermfg=252'
 
@@ -211,19 +227,23 @@ map <leader>l <C-W>l
 map q: :q
 
 " ==================== NerdTree ====================
-" For toggling
-noremap <Leader>n :NERDTreeToggle<cr>
-noremap <Leader>f :NERDTreeFind<cr>
+" Only load if the plugin has being include in the 
+" bundles above
+if PlugLoaded('NERDTree')
+  " For toggling
+  noremap <Leader>n :NERDTreeToggle<cr>
+  noremap <Leader>f :NERDTreeFind<cr>
 
-" open on the right
-let g:NERDTreeWinPos = "right"
+  " open on the right
+  let g:NERDTreeWinPos = "right"
 
-" open NERDTree on startup and set focus to main window
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+  " open NERDTree on startup and set focus to main window
+  autocmd VimEnter * NERDTree
+  autocmd VimEnter * wincmd p
 
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  " close vim if the only window left open is a NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+endif
 
 " ==================================================
 " handle mistyping save and quit commands
