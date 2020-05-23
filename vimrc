@@ -266,3 +266,8 @@ noremap k gk
 "remap jj to ESC in insert mode
 inoremap jj <Esc>
 nnoremap JJJJ <Nop>
+
+
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
