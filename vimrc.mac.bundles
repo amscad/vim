@@ -8,7 +8,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'SirVer/ultisnips'         "Snippets
+"Plug 'SirVer/ultisnips'         "Snippets
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'elzr/vim-json', {'for' : 'json'} " JSON highlighting
 Plug 'ervandew/supertab'        " use <Tab> for all your insert completion needs
@@ -28,7 +28,7 @@ Plug 'trusktr/seti.vim'         " seti colorscheme
 Plug 'vim-ruby/vim-ruby'        " ruby development
 
 "A fast, as-you-type, fuzzy search code completion engine
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' } 
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' } 
 
 "For exploring Go code - The plugin requires a Go helper program
 "go get github.com/garyburd/go-explorer/src/getool
