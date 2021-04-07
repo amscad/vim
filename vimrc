@@ -229,7 +229,7 @@ map q: :q
 " ==================== NerdTree ====================
 " Only load if the plugin has being include in the 
 " bundles above
-if PlugLoaded('NERDTree')
+"if PlugLoaded('NERDTree')
   " For toggling
   noremap <Leader>n :NERDTreeToggle<cr>
   noremap <Leader>f :NERDTreeFind<cr>
@@ -243,7 +243,7 @@ if PlugLoaded('NERDTree')
 
   " close vim if the only window left open is a NERDTree
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-endif
+"endif
 
 " ==================================================
 " handle mistyping save and quit commands
